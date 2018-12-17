@@ -1,35 +1,49 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "am_personalizations",
+    'name': "Am Personalizations",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Modificaciones para adaptar odoo a la empresa audiomedical
+        """,
 
     'description': """
-        Long description of module's purpose
+        Multitud de modificaciones para adaptar en términos generales odoo para la empresa audiomedical
+        
+        PEDIDOS
+            - Elimina opciones de facturacion en pedidos, directamente factura.
+            - Modifica la extensión de los presupuestos al ser confirmados PRE -> PV
+            - Al registrar el pago final de una factura valida el albarán de salida si es posible
+            - Modifica dominio presupuestos a únicamente presupuestos
+        
+        FACTURAS
+            - Cambia css de las facturas para tener los colores de audiomedical
+            - Cambia foto de fondo para poner el logo de audiomedical
+            - Cambia texto de la factura Saldo por Saldo pendiente
+        
+        MARGENES SOBRE VENTAS
+            - Definir
+            
+        CLIENTES
+            - Definir
+            
+        PERMISOS
+            - Definir
+        
+        
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Sergio Del Castillo Baranda",
+    'website': "http://www.sergiodelcastillo.com",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/11.0/odoo/addons/base/module/module_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    'category': 'Sales',
     'version': '0.1',
 
-    # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['sale'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/sale_order.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+
 }

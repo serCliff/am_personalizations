@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+
+      <!--Añade nuevo botón para hacer facturas-->
+      <record model="ir.ui.view" id="sale_order_invoice_directly">
+          <field name="name">sale.order.invoice</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+
+              <button name="action_quotation_send"  position="after">
+                  <button name="action_create_invoice_auto" type="object" string="Facturar"
+                          class="btn-primary"
+                          attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
+              </button>
+
+          </field>
+      </record>
+
+      <!--Elimina botones antiguos para facturar por partes-->
+      <record model="ir.ui.view" id="create_invoice_hide">
+          <field name="name">sale.order.invoice</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale_management.sale_order_view_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][1]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+              <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+          </field>
+      </record>
+
+      <!--Añade dominio a presupuestos-->
+      <record id="action_quotations" model="ir.actions.act_window">
+            <field name="name">Presupuestos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="sale.view_quotation_tree"/>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="domain">[('state', 'in', ('draft', 'sent', 'cancel'))]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Crea un Presupuesto, el primer paso de una nueva venta.
+              </p><p>
+                Sus próximas acciones deberían fluir de manera eficiente: confirmar el presupuesto a pedido de venta, luego crear la factura y cobrarla.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="sale.menu_sale_quotations"
+                  action="am_personalizations.action_quotations"
+                  parent="sale.sale_order_menu"
+                  string="Presupuestos"
+                  sequence="1"
+                  groups="sales_team.group_sale_salesman"/>
+  </data>
+</odoo>
+
