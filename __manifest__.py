@@ -38,11 +38,19 @@
     'category': 'Sales',
     'version': '0.1',
 
-    'depends': ['sale', 'web_digital_sign'],
+    'depends': ['sale',
+                'stock',
+                'account',
+                'product',
+                'purchase',
+                'web_digital_sign',
+                ],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/audiomedical_security.xml',
+        'security/commercial_permissions.xml',
         'views/sale_order.xml',
         'views/res_partner.xml',
     ],

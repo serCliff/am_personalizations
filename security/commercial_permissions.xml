@@ -1,0 +1,250 @@
+<odoo>
+  <data>
+
+<!--PRODUCTOS-->
+      <record model="ir.ui.view" id="product_template_permissions">
+          <field name="name">product.template.premissions</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_form_view"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--READONLY-->
+                  <!--Nombre de producto-->
+                  <field name="name" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                  </field>
+
+                  <!--Categoria producto-->
+                  <field name="type" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                  </field>
+
+                  <!--Puede ser vendido/comprado-->
+                  <field name="sale_ok" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                  </field>
+                  <field name="purchase_ok" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                  </field>
+
+              <!--INVISIBLE-->
+                  <!--Precio de coste-->
+                  <label for="standard_price" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                  </label>
+                  <field name="standard_price" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                  </field>
+
+                  <!--Precio de venta-->
+                  <field name="list_price" position="attributes">
+                      <attribute name="readonly">1</attribute>
+                  </field>
+
+                  <!--Boton archivar producto-->
+                  <button name="toggle_active" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                  </button>
+
+
+                  <!--Pagina ventas-->
+                  <page name="sales" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                  </page>
+
+                  <!--Pagina inventario-->
+                  <page name="inventory" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                  </page>
+
+
+          </field>
+      </record>
+
+
+      <record model="ir.ui.view" id="product_template_permissions_account">
+          <field name="name">product.template.premissions.account</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="account.product_template_form_view"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Pagina facturacion-->
+              <page name="invoicing" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </page>
+          </field>
+      </record>
+
+
+      <record model="ir.ui.view" id="product_template_permissions_purchase">
+          <field name="name">product.template.premissions.purchase</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="purchase.view_product_supplier_inherit"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Pagina facturacion-->
+              <page name="purchase" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </page>
+          </field>
+      </record>
+
+
+      <record model="ir.ui.view" id="product_template_stock_button">
+          <field name="name">product.template.stock.button</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Pagina facturacion-->
+             <xpath expr="//button[@name='%(stock.action_view_change_product_quantity)d']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+          </field>
+      </record>
+
+
+
+<!--VENTAS-->
+      <record model="ir.ui.view" id="sale_order_permissions">
+          <field name="name">sale.order.form.permissions</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Evitar cancelar/bloquear pedidos-->
+              <button name="action_cancel" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </button>
+              <button name="action_done" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </button>
+
+              <!--IVA readonly-->
+              <xpath expr="//form//field[@name='tax_id']" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </xpath>
+              <xpath expr="//tree/field[@name='tax_id']" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </xpath>
+
+              <!--No crear productos-->
+              <xpath expr="//tree/field[@name='product_id']" position="attributes">
+                  <attribute name="options">{'no_create': True, 'no_create_edit':True}</attribute>
+              </xpath>
+
+          </field>
+      </record>
+
+
+      <record model="ir.ui.view" id="account_invoice_permissions">
+          <field name="name">account.invoice.form.permissions</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Evitar reiniciar facturas-->
+              <button name="action_invoice_draft" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </button>
+
+              <!--PRODUCTS readonly-->
+              <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </xpath>
+
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="account_invoice_permissions_button_cancel">
+          <field name="name">account.invoice.form.permissions.cancel</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account_cancel.invoice_form_cancel_inherit"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Evitar cancelar facturas-->
+              <button name="action_invoice_cancel" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </button>
+
+          </field>
+      </record>
+
+<!--COMPRAS-->
+       <record model="ir.ui.view" id="purchase_order_permissions">
+          <field name="name">purchase.order.form.permissions</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.purchase_order_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Precio producto-->
+              <xpath expr="//tree/field[@name='price_unit']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+              <xpath expr="//tree/field[@name='price_subtotal']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+              <!--IVA Compras-->
+              <xpath expr="//tree/field[@name='taxes_id']" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </xpath>
+
+              <!--Total pedido-->
+              <xpath expr="//group[hasclass('oe_subtotal_footer')]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+
+              <!--No crear productos-->
+              <xpath expr="//tree/field[@name='product_id']" position="attributes">
+                  <attribute name="options">{'no_create': True, 'no_create_edit':True}</attribute>
+              </xpath>
+
+          </field>
+       </record>
+
+
+       <record model="ir.ui.view" id="account_invoice_purchase_permissions">
+          <field name="name">account.invoice.form.permissions.purchase</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_supplier_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Precio producto-->
+              <xpath expr="//tree/field[@name='price_unit']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+              <xpath expr="//tree/field[@name='price_subtotal']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+
+              <!--Total pedido-->
+              <xpath expr="//group[hasclass('oe_subtotal_footer')]" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+
+              <!--Bloqueo lineas productos factura-->
+              <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </xpath>
+              <xpath expr="//field[@name='tax_line_ids']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+
+          </field>
+       </record>
+  </data>
+</odoo>
+
