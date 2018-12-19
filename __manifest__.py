@@ -38,12 +38,13 @@
     'category': 'Sales',
     'version': '0.1',
 
-    'depends': ['sale'],
+    'depends': ['sale', 'web_digital_sign'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/sale_order.xml',
+        'views/res_partner.xml',
     ],
 
 }
