@@ -15,6 +15,12 @@
             - Al registrar el pago final de una factura valida el albarán de salida si es posible
             - Modifica dominio presupuestos a únicamente presupuestos
         
+        PERMISOS
+            - Comercial: Bloqueo de edicion de productos, pedidos y facturas (en estados sensibles)
+            - Recepcion, Responsable, Director: Únicamente tiene heredados permisos necesarios.
+        
+        # TODO
+        
         FACTURAS
             - Cambia css de las facturas para tener los colores de audiomedical
             - Cambia foto de fondo para poner el logo de audiomedical
@@ -26,8 +32,7 @@
         CLIENTES
             - Definir
             
-        PERMISOS
-            - Definir
+        
         
         
     """,

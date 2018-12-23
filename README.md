@@ -9,6 +9,12 @@ Sergio del Castillo Baranda
 * Modifica la extensión de los presupuestos al ser confirmados PRE -> PV
 * Al registrar un pago valida el albarán de salida si es posible
 
+## PERMISOS
+* Comercial: Bloqueo de edicion de productos, pedidos y facturas (en estados sensibles)
+* Recepcion, Responsable, Director: Únicamente tiene heredados permisos necesarios.
+
+
+#TODO
 ## FACTURAS
 * Cambia css de las facturas para tener los colores de audiomedical
 * Cambia foto de fondo para poner el logo de audiomedical
@@ -18,7 +24,4 @@ Sergio del Castillo Baranda
 * Definir
     
 ## CLIENTES
-* Definir
-    
-## PERMISOS
 * Definir
