@@ -1,5 +1,5 @@
 <odoo>
-  <data>
+  <data noupdate="0">
 
 <!--PRODUCTOS-->
       <record model="ir.ui.view" id="product_template_permissions">
@@ -159,6 +159,11 @@
                   <attribute name="readonly">1</attribute>
               </xpath>
 
+              <!--Bloquear rectificativas-->
+             <xpath expr="//button[@name='%(account.action_account_invoice_refund)d']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
+
           </field>
       </record>
 
@@ -242,6 +247,12 @@
               <xpath expr="//field[@name='tax_line_ids']" position="attributes">
                   <attribute name="invisible">1</attribute>
               </xpath>
+
+              <!--Bloquear rectificativas-->
+             <xpath expr="//button[@name='%(account.action_account_invoice_refund)d']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+             </xpath>
+
 
           </field>
        </record>
