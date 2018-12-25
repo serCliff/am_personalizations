@@ -23,6 +23,16 @@
                     </group>
                   </group>
               </group>
+
+              <!--Fecha de nacimiento-->
+              <field name="lang" position="after">
+                  <field name="remaining_battery"/>
+              </field>
+
+              <!--Pilas restantes-->
+              <field name="vat" position="after">
+                  <field name="born_date"/>
+              </field>
           </field>
       </record>
 

@@ -7,6 +7,9 @@ import pdb;
 class ResPartnerPersonalization(models.Model):
     _inherit = "res.partner"
 
+    remaining_battery = fields.Integer("Pilas Restantes")
+    born_date = fields.Date("Fecha de Nacimento")
+
     def _compute_attached_docs_count(self):
         Attachment = self.env['ir.attachment']
         for partner in self:
