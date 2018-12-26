@@ -19,7 +19,7 @@
               <group position="after">
                   <group>
                     <group>
-                        <field name="rgpd_signature" widget="signature"/>
+                        <field name="rgpd_signature" widget="signature" attrs="{'invisible': [('customer', '!=', True)]}"/>
                     </group>
                   </group>
               </group>
