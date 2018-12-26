@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+        <record model="ir.ui.view" id="res_users_warehouse_default">
+            <field name="name">res.users.warehouse</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <field name="barcode" position="before">
+                    <field name="default_warehouse"/>
+                </field>
+            </field>
+        </record>
+
+  </data>
+</odoo>
+
