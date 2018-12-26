@@ -55,10 +55,11 @@
     'data': [
         # 'security/ir.model.access.csv',
         'security/audiomedical_security.xml',
-        'security/commercial_permissions.xml',
+        'views/commercial_permissions.xml',
         'views/sale_order.xml',
         'views/res_partner.xml',
         'views/res_users.xml',
+        'views/purchase_order.xml',
     ],
 
 }
