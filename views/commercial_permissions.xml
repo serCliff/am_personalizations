@@ -252,7 +252,26 @@
              <xpath expr="//button[@name='%(account.action_account_invoice_refund)d']" position="attributes">
                   <attribute name="invisible">1</attribute>
              </xpath>
+          </field>
+       </record>
 
+
+       <record model="ir.ui.view" id="pos_session_permissions">
+          <field name="name">pos.session.form.permissions</field>
+          <field name="model">pos.session</field>
+          <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!-- Readonly para configuracion del pdv-->
+              <field name="config_id" position="attributes">
+                  <attribute name="readonly">1</attribute>
+              </field>
+              
+              <!--Oculta el cierre de caja cuando estado es cerrado-->
+             <xpath expr="//button[@name='open_cashbox'][2]" position="attributes">
+                  <attribute name="attrs">{'invisible':['|', '|', ('cash_control', '=', False), ('state', '=', 'opening_control'), ('state', '=', 'closed')]}</attribute>
+             </xpath>
 
           </field>
        </record>

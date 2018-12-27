@@ -45,6 +45,8 @@
 
     'depends': ['sale',
                 'stock',
+                'sales_team',
+                'point_of_sale',
                 'account',
                 'product',
                 'purchase',

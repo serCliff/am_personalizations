@@ -17,6 +17,10 @@
                                          (4, ref('purchase.group_purchase_manager')),
                                          (4, ref('sale.group_discount_per_so_line')),
                                          (4, ref('sale.group_proforma_sales')),
+                                         (4, ref('sales_team.group_sale_salesman_all_leads')),
+                                         (4, ref('point_of_sale.group_pos_user')),
+                                         (4, ref('stock.group_stock_user')),
+                                         (4, ref('sale.group_show_price_total')),
                                           ]"/>
     </record>
 
@@ -28,6 +32,10 @@
                                          (4, ref('purchase.group_purchase_manager')),
                                          (4, ref('sale.group_discount_per_so_line')),
                                          (4, ref('sale.group_proforma_sales')),
+                                         (4, ref('sales_team.group_sale_salesman_all_leads')),
+                                         (4, ref('point_of_sale.group_pos_user')),
+                                         (4, ref('stock.group_stock_user')),
+                                         (4, ref('sale.group_show_price_total')),
                                          ]"/>
     </record>
 
@@ -39,6 +47,10 @@
                                          (4, ref('purchase.group_purchase_manager')),
                                          (4, ref('sale.group_discount_per_so_line')),
                                          (4, ref('sale.group_proforma_sales')),
+                                         (4, ref('sales_team.group_sale_manager')),
+                                         (4, ref('point_of_sale.group_pos_manager')),
+                                         (4, ref('stock.group_stock_manager')),
+                                         (4, ref('sale.group_show_price_total')),
                                           ]"/>
     </record>
 

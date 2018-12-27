@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 import pdb
 
+
 class ResUsers(models.Model):
     _inherit = "res.users"
 
@@ -38,7 +39,8 @@ class SaleOrderPersonalization(models.Model):
         for so in self:
             so.name = so.name.replace("SO", "PV")
             so.name = so.name.replace("PRE", "PV")
-        return super(SaleOrderPersonalization, self).action_confirm()
+        return super().action_confirm()
+
 
 
 class SaleOrderPersonalization(models.Model):
