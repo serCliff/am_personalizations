@@ -19,7 +19,8 @@
               <group position="after">
                   <group>
                     <group>
-                        <field name="rgpd_signature" widget="signature" attrs="{'invisible': [('customer', '!=', True)]}"/>
+                        <field name="rgpd_signed" widget="boolean_toggle" class="oe_edit_only"/>
+                        <field name="rgpd_signature" widget="signature" attrs="{'invisible': [('rgpd_signed', '=', False)]}"/>
                     </group>
                   </group>
               </group>
@@ -45,10 +46,10 @@
 
               <!--RGPD-->
               <field name="type" position="after">
-                  <field name="rgpd_signature" invisible="1"/>
+                  <field name="rgpd_signed" invisible="1"/>
               </field>
               <xpath expr="//div[hasclass('oe_kanban_partner_links')]" position="inside">
-                  <span t-if="record.rgpd_signature.value" class="badge"><i class="fa fa-fw fa-thumbs-up"/></span>
+                  <span t-if="record.rgpd_signed.raw_value" class="badge"><i class="fa fa-fw fa-thumbs-up"/></span>
               </xpath>
 
           </field>

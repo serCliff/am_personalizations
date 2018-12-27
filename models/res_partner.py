@@ -7,9 +7,6 @@ import pdb;
 class ResPartnerPersonalization(models.Model):
     _inherit = "res.partner"
 
-    remaining_battery = fields.Integer("Pilas Restantes")
-    born_date = fields.Date("Fecha de Nacimento")
-
     def _compute_attached_docs_count(self):
         Attachment = self.env['ir.attachment']
         for partner in self:
@@ -18,7 +15,11 @@ class ResPartnerPersonalization(models.Model):
                 ('res_model', '=', 'res.partner'), ('res_id', '=', partner.id)
             ])
 
+    remaining_battery = fields.Integer("Pilas Restantes")
+    born_date = fields.Date("Fecha de Nacimento")
+
     doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
+    rgpd_signed = fields.Boolean(string="Firmar RGPD", default="False")
     rgpd_signature = fields.Binary(string="Firma", attachment=True)
 
     @api.multi
