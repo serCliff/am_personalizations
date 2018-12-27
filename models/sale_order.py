@@ -4,12 +4,6 @@ from odoo import models, fields, api
 import pdb
 
 
-class ResUsers(models.Model):
-    _inherit = "res.users"
-
-    default_warehouse = fields.Many2one("stock.warehouse", "Almacén por defecto")
-
-
 class SaleOrderPersonalization(models.Model):
     _inherit = "sale.order"
 

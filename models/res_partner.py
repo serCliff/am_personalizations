@@ -2,7 +2,12 @@
 
 from odoo import models, fields, api, _
 
-import pdb;
+
+class ResUsers(models.Model):
+    _inherit = "res.users"
+
+    default_warehouse = fields.Many2one("stock.warehouse", "Almacén por defecto")
+
 
 class ResPartnerPersonalization(models.Model):
     _inherit = "res.partner"
@@ -19,7 +24,7 @@ class ResPartnerPersonalization(models.Model):
     born_date = fields.Date("Fecha de Nacimento")
 
     doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
-    rgpd_signed = fields.Boolean(string="Firmar RGPD", default="False")
+    rgpd_signed = fields.Boolean(string="Firmar RGPD", default=False)
     rgpd_signature = fields.Binary(string="Firma", attachment=True)
 
     @api.multi
@@ -43,3 +48,4 @@ class ResPartnerPersonalization(models.Model):
             'limit': 80,
             'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
+
