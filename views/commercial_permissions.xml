@@ -200,7 +200,7 @@
 
               <!--IVA Compras-->
               <xpath expr="//tree/field[@name='taxes_id']" position="attributes">
-                  <attribute name="readonly">1</attribute>
+                  <attribute name="invisible">1</attribute>
               </xpath>
 
               <!--Total pedido-->
@@ -242,7 +242,7 @@
 
               <!--Bloqueo lineas productos factura-->
               <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
-                  <attribute name="readonly">1</attribute>
+                  <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}</attribute>
               </xpath>
               <xpath expr="//field[@name='tax_line_ids']" position="attributes">
                   <attribute name="invisible">1</attribute>
@@ -267,7 +267,7 @@
               <field name="config_id" position="attributes">
                   <attribute name="readonly">1</attribute>
               </field>
-              
+
               <!--Oculta el cierre de caja cuando estado es cerrado-->
              <xpath expr="//button[@name='open_cashbox'][2]" position="attributes">
                   <attribute name="attrs">{'invisible':['|', '|', ('cash_control', '=', False), ('state', '=', 'opening_control'), ('state', '=', 'closed')]}</attribute>
