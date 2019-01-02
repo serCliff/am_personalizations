@@ -277,6 +277,28 @@
        </record>
 
 
+       <record model="ir.ui.view" id="pos_cash_balance_permissions">
+          <field name="name">account.bank.statement.cashbox.tree.permissions</field>
+          <field name="model">account.bank.statement.cashbox</field>
+          <field name="inherit_id" ref="account.view_account_bnk_stmt_cashbox"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!-- Readonly para configuracion del pdv-->
+              <xpath expr="//field[@name='cashbox_lines_ids']/tree" position="attributes">
+                  <!--<attribute name="options">{'no_create': True, 'no_create_edit':True}</attribute>-->
+                  <attribute name="create">false</attribute>
+              </xpath>
+
+              <field name="coin_value" position="attributes">
+                  <attribute name="readonly">1</attribute>
+                  <attribute name="required">False</attribute>
+              </field>
+
+          </field>
+       </record>
+
+
 
 <!--RES PARTNER-->
        <record model="ir.ui.view" id="res_partner_permissions">
