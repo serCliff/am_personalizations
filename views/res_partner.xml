@@ -34,6 +34,48 @@
               <field name="vat" position="after">
                   <field name="born_date"/>
               </field>
+
+                <!--Ocultamos company type y ponemos el id-->
+              <field name="company_type" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </field>
+              <field name="parent_id" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </field>
+              <field name="vat" position="before">
+                  <field name="id" string="ID"/>
+              </field>
+
+          </field>
+      </record>
+
+
+      <!--FORM-->
+      <record model="ir.ui.view" id="res_partner_tree">
+          <field name="name">res.partner.files</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_tree"/>
+          <field name="arch" type="xml">
+
+              <!--Audiometrias-->
+              <field name="display_name" position="before">
+                  <field name="id" string="ID"/>
+                  <field name="vat"/>
+              </field>
+
+              <field name="phone" position="after">
+                  <field name="mobile"/>
+                  <field name="city"/>
+              </field>
+
+              <field name="email" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </field>
+
+              <field name="email" position="after">
+                  <field name="comment"/>
+              </field>
+
           </field>
       </record>
 
@@ -64,10 +106,27 @@
 
               <!--RGPD-->
               <separator position="after">
-                  <filter name="filter_rgpd_partners" help="RGPD Firmada" domain="[('rgpd_signature','!=',False)]"/>
-                  <filter name="filter_NO_rgpd_partners" help="RGPD NO Firmada" domain="[('rgpd_signature','=',False)]"/>
+                  <filter name="filter_rgpd_partners" help="RGPD Firmada" domain="[('rgpd_signed','!=',False)]"/>
+                  <filter name="filter_NO_rgpd_partners" help="RGPD NO Firmada" domain="[('rgpd_signed','=',False)]"/>
                   <separator/>
               </separator>
+
+
+               <field name="name" position="replace">
+                   <field name="name" filter_domain="['|', '|',
+                                                            ('display_name','ilike',self),
+                                                            ('id','=',self),
+                                                            ('email','ilike',self),
+                                                            ]"/>
+                   <field name="phone" string="Tel / Mov" filter_domain="['|',
+                                                            ('phone','ilike',self),
+                                                            ('mobile','ilike',self),
+                                                            ]"/>
+                   <field name="city" string="Ciudad" filter_domain="[('city','ilike',self)]"/>
+               </field>
+
+               <!--<filter name="filter_my_partners" help="My Partners" domain="[('user_id','=',uid)]"/>-->
+               <!--<separator/>-->
 
           </field>
       </record>
