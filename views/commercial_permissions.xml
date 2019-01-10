@@ -197,6 +197,9 @@
               <xpath expr="//tree/field[@name='price_subtotal']" position="attributes">
                   <attribute name="invisible">1</attribute>
               </xpath>
+              <xpath expr="//sheet/group/group/field[@name='price_unit']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
 
               <!--IVA Compras-->
               <xpath expr="//tree/field[@name='taxes_id']" position="attributes">
@@ -212,6 +215,25 @@
               <!--No crear productos-->
               <xpath expr="//tree/field[@name='product_id']" position="attributes">
                   <attribute name="options">{'no_create': True, 'no_create_edit':True}</attribute>
+              </xpath>
+
+          </field>
+       </record>
+
+
+       <record model="ir.ui.view" id="purchase_order_permissions_tree">
+          <field name="name">purchase.order.tree.permissions</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_commercial'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Precio producto en tree-->
+              <xpath expr="//tree/field[@name='amount_untaxed']" position="attributes">
+                  <attribute name="invisible">1</attribute>
+              </xpath>
+              <xpath expr="//tree/field[@name='amount_total']" position="attributes">
+                  <attribute name="invisible">1</attribute>
               </xpath>
 
           </field>
