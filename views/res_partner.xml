@@ -10,6 +10,7 @@
 
               <!--Audiometrias-->
               <div name="button_box"  position="inside">
+                  <button name="action_print" type="object" string="Print"/>
                   <button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-files-o">
                         <field string="Documents" name="doc_count" widget="statinfo"/>
                     </button>
