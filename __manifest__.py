@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Am Personalizations",
 
@@ -56,6 +55,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'report/rgpd_report.xml',
         'security/audiomedical_security.xml',
         'views/commercial_permissions.xml',
         'views/sale_order.xml',
@@ -65,3 +65,4 @@
     ],
 
 }
+# -*- coding: utf-8 -*-

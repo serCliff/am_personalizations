@@ -49,3 +49,7 @@ class ResPartnerPersonalization(models.Model):
             'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
 
+    @api.multi
+    def action_print(self):
+        return self.env['report'].get_action(self, 'am_personalizations.rgpd_signed')
+
