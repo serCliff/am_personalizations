@@ -1,39 +1,61 @@
 <odoo>
 
-    <!-- Main template -->
-    <template id="report_saleorder">
+    <template id="rgpd_signed_template">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <t t-call="ta_personalizations.report_rgpd" t-lang="doc.partner_id.lang"/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size: 16px !important;">
+                        <h2 style="font-size: 24px !important;">CONSENTIMIENTO PARA EL TRATAMIENTO DE DATOS PERSONALES</h2>
+                        <br/>
+                        <p>D/ña. <span t-field="o.name"/> mayor de edad, con NIF <span t-field="o.vat"/>,
+                        con domicilio en <span t-field="o.street"/>, CP: <span t-field="o.zip"/>
+                        de <span t-field="o.city"/>, <span t-field="o.state_id"/>, <span t-field="o.country_id"/></p>
+                        <br/>
+                        <p>De acuerdo con lo dispuesto en el Reglamento (UE) 2016/679 y con la normativa vigente,
+                            se le informa que los datos recogidos en el presente formulario son necesario para
+                            la prestación del servicio que se pretende y su negativa a proporcionarlos supondría
+                            la imposibilidad de prestar el mismo.</p>
+                        <br/>
+                        <p>Con su firma de aceptación de la oferta consiente expresamente y autoriza como responsable
+                            del tratamiento a AudioMedical, Manuela Baranda Álvarez con DNI 12328191F y con correo
+                            electrónico audiomedicalmanuela@gmail.com, para el tratamiento de todos los datos personales
+                            facilitados por usted a fin de prestarle el servicio contratado y realizar seguimiento
+                            del mismo.</p>
+                        <br/>
+                        <p>Los datos proporcionados se conservarán mientras se mantenga relación comercial y durante el
+                            tiempo necesario para cumplir con las obligaciones legales.</p>
+                        <br/>
+                        <p>Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal. </p>
+                        <br/>
+                        <p>Usted tiene derecho a acceder a sus datos personales, rectificar los datos inexactos o
+                            solicitar su suspensión cuando considere que los datos ya no sean necesarios. </p>
+                        <br/>
+                        <p>Adicionalmente a ello, consiente y nos autoriza expresamente a mantenerle informado sobre
+                            cambios relevantes de otros productos y servicios relacionados con los servicios contratados con nuestra entidad.</p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(o.rgpd_signature)"/>
+                        <p>Fdo: <span t-field="o.name"/></p>
+                        <p>Fecha: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%H:%M %d-%m-%Y')"/></p>
+                    </div>
+                </t>
             </t>
         </t>
     </template>
 
-    <!-- Translatable template -->
-    <template id="report_rgpd">
-        <!-- Re-browse of the record with the partner lang -->
-        <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
-        <t t-call="web.external_layout">
-            <div class="page">
-                <div class="oe_structure"/>
-                <div class="row">
-                    <div class="col-xs-6">
-                        asdfsdfsdfsdfsdfsdfsdfds
-                    </div>
-                </div>
-                <div class="oe_structure"/>
-            </div>
-        </t>
-    </template>
-
     <report
-        id="rgpd_signed"
-        model="res.partner"
-        string="RGPD"
-        report_type="qweb-pdf"
-        name="RGPD"
-        file="rgpd_invoice"
-        attachment_use="True"
-        attachment="('INV'+(object.name or '').replace('/','')+'rgpd_firmado.pdf')"
+            id="rgpd_signed_report_pdf"
+            string="RGPD"
+            model="res.partner"
+            report_type="qweb-pdf"
+            name="am_personalizations.rgpd_signed_template"
+            file="am_personalizations.rgpd_signed_template"
+            attachment_use="True"
+            print_report_name="('RGPD_'+(object.name or '').replace('/',''))"
+            attachment="('RGPD_'+(object.name or '').replace('/','')+'.pdf')"
     />
 </odoo>
