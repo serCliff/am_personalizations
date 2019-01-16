@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+# from odoo.tools import report
 
 
 class ResUsers(models.Model):
@@ -49,7 +50,11 @@ class ResPartnerPersonalization(models.Model):
             'context': "{'default_res_model': '%s','default_res_id': %d}" % (self._name, self.id)
         }
 
-    @api.multi
-    def action_print(self):
-        return self.env['report'].get_action(self, 'am_personalizations.rgpd_signed')
+
+
+        # @api.multi
+    # def action_print(self):
+    #     return self.env.ref('am_personalizations.rgpd_signed').report_action(self)
+
+        # return self.env['report'].get_action(self, 'am_personalizations.rgpd_signed')
 
