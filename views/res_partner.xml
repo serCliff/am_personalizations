@@ -37,9 +37,9 @@
               </group>
 
               <!--Fecha de nacimiento-->
-              <!--<field name="lang" position="after">-->
-                  <!--<field name="remaining_battery"/>-->
-              <!--</field>-->
+              <field name="lang" position="after">
+                  <field name="remaining_battery" invisible="1"/>
+              </field>
 
               <!--Pilas restantes-->
               <field name="vat" position="after">
