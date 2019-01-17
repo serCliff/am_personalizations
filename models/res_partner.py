@@ -21,7 +21,7 @@ class ResPartnerPersonalization(models.Model):
                 ('res_model', '=', 'res.partner'), ('res_id', '=', partner.id)
             ])
 
-    remaining_battery = fields.Integer("Pilas Restantes")
+    # remaining_battery = fields.Integer("Pilas Restantes")
     born_date = fields.Date("Fecha de Nacimento")
 
     doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
