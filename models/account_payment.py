@@ -4,8 +4,12 @@ from odoo import models, fields, api
 
 import pdb;
 
+
 class AccountPaymentPersonalization(models.Model):
     _inherit = "account.payment"
+
+    sale_order_id = fields.Many2one('sale.order')
+
 
     @api.multi
     def action_validate_invoice_payment(self):

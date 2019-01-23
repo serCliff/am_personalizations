@@ -13,6 +13,7 @@
             - Modifica la extensión de los presupuestos al ser confirmados PRE -> PV
             - Al registrar el pago final de una factura valida el albarán de salida si es posible
             - Modifica dominio presupuestos a únicamente presupuestos
+            - Permite añadir anticipos de pagos antes de crear la factura
         
         PERMISOS
             - Comercial: Bloqueo de edicion de productos, pedidos y facturas (en estados sensibles)
@@ -40,7 +41,7 @@
     'website': "http://www.sergiodelcastillo.com",
 
     'category': 'Sales',
-    'version': '0.2',
+    'version': '2.0',
 
     'depends': ['sale',
                 'stock',
@@ -59,6 +60,7 @@
         'security/audiomedical_security.xml',
         'views/commercial_permissions.xml',
         'views/sale_order.xml',
+        'views/sale_order_payments.xml',
         'views/res_partner.xml',
         'views/res_users.xml',
         'views/purchase_order.xml',
