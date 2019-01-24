@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+
+<!--PRODUCTOS-->
+      <record model="ir.ui.view" id="pos_session_permissions">
+          <field name="name">pos.session.premissions</field>
+          <field name="model">pos.session</field>
+          <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+          <field name="groups_id" eval="[(4, ref('am_personalizations.group_manager')),
+                                         (4, ref('am_personalizations.group_director'))]"/>
+          <field name="arch" type="xml">
+
+              <!--Permiso para visualizar cashbox-->
+              <xpath expr="//button[@name='open_cashbox'][1]" position="attributes">
+                  <attribute name="attrs"/>
+              </xpath>
+              <xpath expr="//button[@name='open_cashbox'][2]" position="attributes">
+                  <attribute name="attrs"/>
+              </xpath>
+
+
+
+          </field>
+      </record>
+
+
+
+  </data>
+</odoo>
+
