@@ -41,7 +41,7 @@
     'website': "http://www.sergiodelcastillo.com",
 
     'category': 'Sales',
-    'version': '2.0',
+    'version': '2.1',
 
     'depends': ['sale',
                 'stock',
@@ -59,6 +59,7 @@
         'report/rgpd_report.xml',
         'security/audiomedical_security.xml',
         'views/commercial_permissions.xml',
+        'views/manager_permissions.xml',
         'views/sale_order.xml',
         'views/sale_order_payments.xml',
         'views/res_partner.xml',
