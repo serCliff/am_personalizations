@@ -12,6 +12,22 @@
             </field>
         </record>
 
+
+        <record model="ir.ui.view" id="res_users_warehouse_config">
+            <field name="name">res.users.warehouse.conf</field>
+            <field name="model">res.users</field>
+            <field name="groups_id" eval="[(4, ref('am_personalizations.group_manager')),
+                                           (4, ref('am_personalizations.group_director'))]"/>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <group name="preferences" position="after">
+                    <group string="Almacén por defecto">
+                        <field name="default_warehouse" widget="selection" required="True" options="{'no_create': True}"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
   </data>
 </odoo>
 

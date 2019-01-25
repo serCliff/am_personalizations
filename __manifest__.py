@@ -41,7 +41,7 @@
     'website': "http://www.sergiodelcastillo.com",
 
     'category': 'Sales',
-    'version': '2.1',
+    'version': '2.2',
 
     'depends': ['sale',
                 'stock',
