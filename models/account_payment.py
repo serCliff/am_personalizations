@@ -20,11 +20,11 @@ class AccountPaymentPersonalization(models.Model):
         if inv.residual - self.amount == 0:
             pv_name = inv.origin
             if pv_name:
-                stock_picking = self.env['stock.picking'].search([('origin', '=', pv_name)])
+                stock_picking = self.env['stock.picking'].search([('origin', '=', pv_name),
+                                                                  ('state', 'not in', ['done', 'cancel'])])
                 for picking in stock_picking:
-                    if picking.state != 'done':
-                        for line in picking.move_lines:
-                            line.quantity_done = line.product_uom_qty
-                            line.env.cr.commit()
-                        picking.button_validate()
+                    for line in picking.move_lines:
+                        line.quantity_done = line.product_uom_qty
+                        line.env.cr.commit()
+                    picking.button_validate()
         return super(AccountPaymentPersonalization, self).action_validate_invoice_payment()
