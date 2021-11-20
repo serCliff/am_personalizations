@@ -4,7 +4,7 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                    <div class="page" style="font-size: 13px !important;">
+                    <div class="page" style="font-size: 12px !important;">
                         <h2 style="font-size: 24px !important;">CONSENTIMIENTO PARA EL TRATAMIENTO DE DATOS PERSONALES</h2>
                         <br/>
                         <p>En cumplimiento de la normativa vigente en materia de protección de datos de carácter
