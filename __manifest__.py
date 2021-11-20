@@ -51,6 +51,7 @@
                 'product',
                 'purchase',
                 'web_digital_sign',
+                'l10n_es_account_invoice_sequence',
                 ],
 
     # always loaded

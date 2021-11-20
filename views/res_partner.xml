@@ -28,12 +28,59 @@
 
               <!--RGPD Firma-->
               <group position="after">
-                  <group>
+
+                <div class="col-xs-12" id="rgpd_done" groups="">
+                    <label class="oe_force_bold" for="rgpd_signed" />
+                    <field name="rgpd_signed" class="oe_edit_only" widget="boolean_toggle"/>
+                </div>
+                <div id="rgpd_communication" class="col-xs-12 oe_edit_only mt16" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
+                    <div class="text-muted o_setting_left_pane">
+                        Autoriza todo tipo de información referente a los servicios que presta, comunicaciones de cortesía, comunicaciones comerciales, ofertas, promociones,etc.
+                    </div>
+
+                    <div class="content-group">
+                        <div class="mt8 mb16">
+                            <label>Acepta comunicación: </label>
+                            <field name="communication_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 oe_edit_only" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
+                    <div class="text-muted o_setting_left_pane">
+                        Autoriza expresamente a que el Responsable del Tratamiento pueda realizarle fotografías y/o reportajes de vídeo de su participación en el evento organizado por el RT
+                    </div>
+
+                    <div class="content-group">
+                        <div class="mt8 mb16">
+                            <label >Acepta fotografiarse:</label>
+                            <field name="photo_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 oe_edit_only" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
+                    <div class="text-muted o_setting_left_pane">
+                        Autoriza expresamente al Responsable del Tratamiento al envío de los informes médicos del titular de los datos, a los familiares del mismo
+                    </div>
+
+                    <div class="content-group">
+                        <div class="mt8 mb16">
+                            <label>Acepta envío de informes: </label><span> </span>
+                            <field name="medical_report_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6" id="rgpd_signature_div" groups="" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
+                    <field name="rgpd_signature" widget="signature"/>
+                </div>
+                  <!-- <group>
                     <group>
                         <field name="rgpd_signed" widget="boolean_toggle" class="oe_edit_only"/>
+                        <field name="communication_rgpd" class="oe_edit_only" widget="boolean_toggle" attrs="{'invisible': [('rgpd_signed', '=', False)]}"/>
+                        <field name="photo_rgpd" class="oe_edit_only" widget="boolean_toggle" attrs="{'invisible': [('rgpd_signed', '=', False)]}"/>
+                        <field name="medical_report_rgpd" class="oe_edit_only" widget="boolean_toggle" attrs="{'invisible': [('rgpd_signed', '=', False)]}"/>
                         <field name="rgpd_signature" widget="signature" attrs="{'invisible': [('rgpd_signed', '=', False)]}"/>
                     </group>
-                  </group>
+                  </group> -->
               </group>
 
               <!--Fecha de nacimiento-->
