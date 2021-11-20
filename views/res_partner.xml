@@ -131,10 +131,6 @@
                   <attribute name="invisible">1</attribute>
               </field>
 
-              <field name="email" position="after">
-                  <field name="comment"/>
-              </field>
-
           </field>
       </record>
 
