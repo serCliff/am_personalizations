@@ -4,42 +4,76 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
-                    <div class="page" style="font-size: 16px !important;">
+                    <div class="page" style="font-size: 13px !important;">
                         <h2 style="font-size: 24px !important;">CONSENTIMIENTO PARA EL TRATAMIENTO DE DATOS PERSONALES</h2>
                         <br/>
-                        <p>D/ña. <span t-field="o.name"/> mayor de edad, con NIF <span t-field="o.vat"/>,
-                        con domicilio en <span t-field="o.street"/>, CP: <span t-field="o.zip"/>
-                        de <span t-field="o.city"/>, <span t-field="o.state_id"/>, <span t-field="o.country_id"/></p>
-                        <br/>
-                        <p>De acuerdo con lo dispuesto en el Reglamento (UE) 2016/679 y con la normativa vigente,
-                            se le informa que los datos recogidos en el presente formulario son necesario para
-                            la prestación del servicio que se pretende y su negativa a proporcionarlos supondría
-                            la imposibilidad de prestar el mismo.</p>
-                        <br/>
-                        <p>Con su firma de aceptación de la oferta consiente expresamente y autoriza como responsable
-                            del tratamiento a AudioMedical, Manuela Baranda Álvarez con DNI 12328191F y con correo
-                            electrónico audiomedicalmanuela@gmail.com, para el tratamiento de todos los datos personales
-                            facilitados por usted a fin de prestarle el servicio contratado y realizar seguimiento
-                            del mismo.</p>
-                        <br/>
-                        <p>Los datos proporcionados se conservarán mientras se mantenga relación comercial y durante el
-                            tiempo necesario para cumplir con las obligaciones legales.</p>
-                        <br/>
-                        <p>Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal. </p>
-                        <br/>
-                        <p>Usted tiene derecho a acceder a sus datos personales, rectificar los datos inexactos o
-                            solicitar su suspensión cuando considere que los datos ya no sean necesarios. </p>
-                        <br/>
-                        <p>Adicionalmente a ello, consiente y nos autoriza expresamente a mantenerle informado sobre
-                            cambios relevantes de otros productos y servicios relacionados con los servicios contratados con nuestra entidad.</p>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        <p>En cumplimiento de la normativa vigente en materia de protección de datos de carácter
+                            personal (Reglamento UE 2016/679, de 27 de Abril, del Parlamento Europeo y del
+                            Consejo, Ley Orgánica 3/2018, de 5 de Diciembre, de Protección de Datos Personales y
+                            Garantía de los Derechos Digitales y resto de normativas vigentes), <strong>MANUELA
+                            MAXIMINA BARANDA ÁLVAREZ</strong>, Responsable del Tratamiento, en adelante RT, le
+                            informa que sus datos de carácter personal, pasarán a formar parte de su sistema de
+                            tratamiento de datos, y que serán tratados por éste de acuerdo con dicha normativa,
+                            con la finalidad de la ejecución de la prestación de servicios contratada y para el
+                            mantenimiento de la relación jurídico - negocial surgida entre ambos, durante el tiempo
+                            imprescindible y necesario para el cumplimiento de dicha finalidad, dejando a salvo los
+                            plazos de prescripción legal.</p>
+                            
+                        <p>La base legitimadora para el tratamiento se basa en la aplicación de los arts. 6.1.a) y
+                            6.1.b) del citado RGPD, por el que se establece que el interesado otorga al RT el
+                            consentimiento para el tratamiento de sus datos personales y que el tratamiento es
+                            necesario para la ejecución de un contrato en el que el interesado es parte.</p>
+                            
+                        <p>Se le comunica, como titular de los datos, que éstos podrán ser comunicados a
+                            terceros (asesorías fiscales, laborales, legales, soporte informático y cualesquiera que
+                            preste un servicio al RT con acceso a datos), siempre que esta comunicación responda
+                            a una necesidad para el desarrollo, cumplimiento, mantenimiento y ejecución de las
+                            obligaciones surgidas de esta relación, según los criterios organizativos del RT.</p>
+                            
+                        <p>Ud. autoriza expresamente a que el Responsable del Tratamiento pueda enviarle a través
+                            de su correo postal, correo electrónico, comunicación electrónica equivalente o teléfono
+                            móvil (incluidos servicios de mensajería instantánea del tipo WhatsApp, Telegram, Line,
+                            Spotbros, WeChat, Snapchat, Facebook Messenger, etc.), todo tipo de información
+                            referente a los servicios que presta, comunicaciones de cortesía, comunicaciones
+                            comerciales, ofertas, promociones,etc.</p>
+                            
+                        <p style="text-align:center"> SI [<t t-if="o.communication_rgpd">X</t>] NO [<t t-if="not o.communication_rgpd">X</t>]</p>
+                        
+                        <p>UD. autoriza expresamente a que el RT pueda realizarle fotografías y/o reportajes de
+                            vídeo de su participación en el evento organizado por el RT; así como la posibilidad de
+                            incluirlas en su página Web, redes sociales y/o folletos publicitarios e informativos, o
+                            material que el citado RT pudiera realizar.</p>
+                            
+                        <p style="text-align:center"> SI [<t t-if="o.photo_rgpd">X</t>] NO [<t t-if="not o.photo_rgpd">X</t>]</p>
+                        
+                        <p>Ud. autoriza expresamente al RT al envío de los informes médicos del titular de los datos,
+                            a los familiares del mismo; con la única finalidad de facilitar la información
+                            correspondiente al estado de salud del titular de los datos.</p>
+                            
+                        <p style="text-align:center"> SI [<t t-if="o.medical_report_rgpd">X</t>] NO [<t t-if="not o.medical_report_rgpd">X</t>]</p>
+                        
+                        <p>Para ejercitar los Derechos de acceso, impugnación, rectificación, supresión u
+                            oposición, revocación del consentimiento, portabilidad y limitación del tratamiento,
+                            deberán dirigirse a <strong>MANUELA
+                            MAXIMINA BARANDA ÁLVAREZ</strong>, CONDE DE CRESPO
+                            RASCÓN Nº 12-22 , 37002, SALAMANCA, SALAMANCA, ESPAÑA , mediante
+                            comunicación por escrito o mediante correo electrónico a la dirección
+                            <strong>audiomedicalsalamanca@gmail.com</strong>. También puede presentar reclamación ante la
+                            AEPD.</p>
+                            
+                        <p>El hecho de no dar sus consentimientos parciales a las clausulas anteriores, podrá
+                            conllevar la imposibilidad de ejecutar la prestación del servicio solicitado entre las
+                            partes. Según el art. 7.3 del RGPD, usted también tiene derecho a retirar, en cualquier
+                            momento, el consentimiento prestado para el tratamiento de sus datos personales.</p>
+                            
+                        <p>El titular de los datos declara estar informado de las condiciones detalladas en la
+                            presente cláusula. Y para que conste a los efectos oportunos, firma el presente
+                            documento.</p>
                         <br/>
                         <br/>
                         <img t-att-src="'data:image/png;base64,%s' % to_text(o.rgpd_signature)"/>
                         <p>Fdo: <span t-field="o.name"/></p>
+                        <p>DNI: <span t-field="o.vat"/></p>
                         <p>Fecha: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%H:%M %d-%m-%Y')"/></p>
                     </div>
                 </t>

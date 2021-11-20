@@ -27,6 +27,9 @@ class ResPartnerPersonalization(models.Model):
     doc_count = fields.Integer(compute='_compute_attached_docs_count', string="Number of documents attached")
     rgpd_signed = fields.Boolean(string="Firmar RGPD", default=False)
     rgpd_signature = fields.Binary(string="Firma", attachment=True)
+    communication_rgpd = fields.Boolean(string="Comunicación", default=True, help="Autoriza todo tipo de información referente a los servicios que presta, comunicaciones de cortesía, comunicaciones comerciales, ofertas, promociones,etc.")
+    photo_rgpd = fields.Boolean(string="Realización de fotografías", default=True, help="Autoriza expresamente a que el RT pueda realizarle fotografías y/o reportajes de vídeo de su participación en el evento organizado por el RT")
+    medical_report_rgpd = fields.Boolean(string="Envío de informes médicos", default=True, help="Autoriza expresamente al RT al envío de los informes médicos del titular de los datos, a los familiares del mismo")
 
     @api.multi
     def attachment_tree_view(self):
