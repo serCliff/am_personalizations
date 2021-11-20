@@ -28,11 +28,11 @@
 
               <!--RGPD Firma-->
               <group position="after">
-
-                <div class="col-xs-12" id="rgpd_done" groups="">
-                    <label class="oe_force_bold" for="rgpd_signed" />
+                <div class="col-xs-12" id="rgpd_done">
+                    <label for="rgpd_signed"/>
                     <field name="rgpd_signed" class="oe_edit_only" widget="boolean_toggle"/>
                 </div>
+                
                 <div id="rgpd_communication" class="col-xs-12 oe_edit_only mt16" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
                     <div class="text-muted o_setting_left_pane">
                         Autoriza todo tipo de información referente a los servicios que presta, comunicaciones de cortesía, comunicaciones comerciales, ofertas, promociones,etc.
@@ -40,11 +40,12 @@
 
                     <div class="content-group">
                         <div class="mt8 mb16">
-                            <label>Acepta comunicación: </label>
+                            <span>Acepta comunicación:</span>
                             <field name="communication_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xs-12 oe_edit_only" attrs="{'invisible': [('rgpd_signed', '=', False)]}">
                     <div class="text-muted o_setting_left_pane">
                         Autoriza expresamente a que el Responsable del Tratamiento pueda realizarle fotografías y/o reportajes de vídeo de su participación en el evento organizado por el RT
@@ -52,7 +53,7 @@
 
                     <div class="content-group">
                         <div class="mt8 mb16">
-                            <label >Acepta fotografiarse:</label>
+                            <span>Acepta fotografiarse:</span>
                             <field name="photo_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
 
                     <div class="content-group">
                         <div class="mt8 mb16">
-                            <label>Acepta envío de informes: </label><span> </span>
+                            <span>Acepta envío de informes:</span>
                             <field name="medical_report_rgpd" class="oe_edit_only ml4" widget="boolean_toggle"/>
                         </div>
                     </div>
