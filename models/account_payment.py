@@ -21,7 +21,7 @@ class AccountPaymentPersonalization(models.Model):
             pv_name = inv.origin
             if pv_name:
                 stock_picking = self.env['stock.picking'].search([('origin', '=', pv_name),
-                                                                  ('state', 'not in', ['done', 'cancel'])])
+                                                                  ('state', 'not in', ['done', 'cancel','draft'])])
                 for picking in stock_picking:
                     for line in picking.move_lines:
                         line.quantity_done = line.product_uom_qty
